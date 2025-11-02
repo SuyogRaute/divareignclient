@@ -16,10 +16,11 @@ const AboutAuthor = () => {
       className="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-background"
     >
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center">
-          {/* Author Image */}
-          <div className="flex justify-center animate-fade-in-scale order-1 md:order-none">
-            <div className="relative group w-[240px] sm:w-[280px] md:w-[320px] lg:w-[360px]">
+        <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
+          
+          {/* ✅ Author Image - Left on Desktop, Above name on Mobile */}
+          <div className="hidden md:flex justify-center animate-fade-in-scale">
+            <div className="relative group w-[320px] lg:w-[360px]">
               <div className="absolute -inset-4 bg-gradient-gold rounded-full opacity-20 group-hover:opacity-30 blur-2xl transition-smooth" />
               <img
                 src={authorPortrait}
@@ -29,12 +30,25 @@ const AboutAuthor = () => {
             </div>
           </div>
 
-          {/* Author Text */}
+          {/* ✅ Author Text */}
           <div className="space-y-6 animate-fade-in text-center md:text-left">
             <div className="space-y-3">
               <h2 className="text-4xl lg:text-5xl font-serif font-bold text-foreground">
                 About the Author
               </h2>
+
+              {/* 👇 Mobile Image (between heading and name) */}
+              <div className="flex justify-center md:hidden my-6">
+                <div className="relative group w-[220px] sm:w-[260px]">
+                  <div className="absolute -inset-4 bg-gradient-gold rounded-full opacity-20 group-hover:opacity-30 blur-2xl transition-smooth" />
+                  <img
+                    src={authorPortrait}
+                    alt="Diva Reign - Author Portrait"
+                    className="relative w-full h-auto rounded-2xl shadow-elevated transform group-hover:scale-105 transition-bounce object-cover"
+                  />
+                </div>
+              </div>
+
               <h3 className="text-2xl lg:text-3xl text-primary font-serif">
                 Diva Reign
               </h3>
@@ -100,6 +114,7 @@ const AboutAuthor = () => {
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
