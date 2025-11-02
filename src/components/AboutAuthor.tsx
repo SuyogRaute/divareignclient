@@ -16,24 +16,23 @@ const AboutAuthor = () => {
       className="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-background"
     >
       <div className="container mx-auto">
-        <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Author Image */}
-          <div className="animate-fade-in-scale">
-            <div className="relative group mx-auto max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
+          <div className="flex justify-center animate-fade-in-scale order-1 md:order-none">
+            <div className="relative group w-[240px] sm:w-[280px] md:w-[320px] lg:w-[360px]">
               <div className="absolute -inset-4 bg-gradient-gold rounded-full opacity-20 group-hover:opacity-30 blur-2xl transition-smooth" />
               <img
                 src={authorPortrait}
                 alt="Diva Reign - Author Portrait"
-                className="relative w-full max-w-[90%] sm:max-w-[80%] mx-auto shadow-elevated transform group-hover:scale-105 transition-bounce"
+                className="relative w-full h-auto rounded-2xl shadow-elevated transform group-hover:scale-105 transition-bounce object-cover"
               />
             </div>
           </div>
 
-
           {/* Author Text */}
-          <div className="space-y-6 animate-fade-in">
+          <div className="space-y-6 animate-fade-in text-center md:text-left">
             <div className="space-y-3">
-              <h2 className="text-4xl lg:text-6xl font-serif font-bold text-foreground">
+              <h2 className="text-4xl lg:text-5xl font-serif font-bold text-foreground">
                 About the Author
               </h2>
               <h3 className="text-2xl lg:text-3xl text-primary font-serif">
@@ -41,7 +40,7 @@ const AboutAuthor = () => {
               </h3>
             </div>
 
-            <div className="space-y-4 text-lg text-muted-foreground leading-relaxed justify-conten-center">
+            <div className="space-y-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
               <p>
                 Diva Reign is a contemporary author and visionary storyteller whose work explores the
                 evolution of the self, consciousness, and the human spirit. Through her books{" "}
@@ -59,11 +58,11 @@ const AboutAuthor = () => {
               </p>
             </div>
 
-            <div className="pt-6 flex items-center gap-4">
+            <div className="pt-6 flex flex-col sm:flex-row items-center sm:items-start justify-center md:justify-start gap-4">
               <Button variant="elegant" size="lg" onClick={scrollToContact}>
                 Connect With Me
               </Button>
-              <div className="flex gap-4 " >
+              <div className="flex gap-4">
                 <a
                   href="https://www.instagram.com/diva.reign?igsh=NnUzd3k4azVtbGlz"
                   target="_blank"
