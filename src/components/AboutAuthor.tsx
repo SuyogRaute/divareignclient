@@ -31,7 +31,7 @@ const AboutAuthor = () => {
           </div>
 
           {/* ✅ Author Text */}
-          <div className="space-y-6 animate-fade-in text-center md:text-left">
+          <div className="space-y-6 animate-fade-in text-left md:text-left">
             <div className="space-y-3">
               <h2 className="text-4xl lg:text-5xl font-serif font-bold text-foreground">
                 About the Author
@@ -72,7 +72,7 @@ const AboutAuthor = () => {
               </p>
             </div>
 
-            <div className="pt-6 flex flex-col sm:flex-row items-center sm:items-start justify-center md:justify-start gap-4">
+            <div className="pt-6 flex flex-col sm:flex-row items-center sm:items-start  justify-start gap-4">
               <Button variant="elegant" size="lg" onClick={scrollToContact}>
                 Connect With Me
               </Button>

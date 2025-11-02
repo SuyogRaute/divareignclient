@@ -1,11 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Button } from './ui/button';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import heroBackground from '@/assets/hero-background.jpg';
 import bookUnveiled from '@/assets/book-unveiled.jpg';
 import booksovereign from '@/assets/book-sovereign.png';
+
 const Hero = () => {
   const [activeBook, setActiveBook] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
 
   const books = [
     {
@@ -49,9 +53,42 @@ const Hero = () => {
     }
   };
 
+  const handlePrevBook = () => {
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setActiveBook((prev) => (prev - 1 + books.length) % books.length);
+      setIsTransitioning(false);
+    }, 500);
+  };
+
+  const handleNextBook = () => {
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setActiveBook((prev) => (prev + 1) % books.length);
+      setIsTransitioning(false);
+    }, 500);
+  };
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current - touchEndX.current > 50) {
+      handleNextBook();
+    }
+    if (touchStartX.current - touchEndX.current < -50) {
+      handlePrevBook();
+    }
+  };
+
   return (
     <section
-      className="relative h-screen flex items-center justify-center pt-20 pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="relative min-h-screen lg:h-screen flex items-center justify-center pt-16 sm:pt-20 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden"
       style={{
         backgroundImage: `url(${heroBackground})`,
         backgroundSize: 'cover',
@@ -78,24 +115,24 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto relative z-10 h-full flex items-center">
-        <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center w-full mt-10">
+        <div className="grid lg:grid-cols-2 gap-4 lg:gap-12 items-center w-full">
           {/* Text Content */}
-          <div className="text-center lg:text-left space-y-3 lg:space-y-6">
-            <div className="space-y-2 lg:space-y-4 animate-fade-in">
+          <div className="text-center lg:text-left space-y-2 sm:space-y-3 lg:space-y-6 mt-5">
+            <div className="space-y-1.5 sm:space-y-2 lg:space-y-4 animate-fade-in">
               <div className="inline-block">
-                <span className="px-3 py-1.5 lg:px-4 lg:py-2 bg-primary/10 text-primary rounded-full text-xs lg:text-sm font-semibold backdrop-blur-sm border border-primary/20 transition-all duration-500 ">
+                <span className="px-2.5 py-1 sm:px-3 sm:py-1.5 lg:px-4 lg:py-2 bg-primary/10 text-primary rounded-full text-xs lg:text-sm font-semibold backdrop-blur-sm border border-primary/20 transition-all duration-500 ">
                   {books[activeBook].badge}
                 </span>
               </div>
               
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-7xl font-serif font-bold text-foreground leading-tight transition-all duration-500">
+              <h2 className="text-2xl sm:text-3xl lg:text-5xl xl:text-7xl font-serif font-bold text-foreground leading-tight transition-all duration-500">
                 {books[activeBook].heroTitle}
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-500 to-pink-500 mt-1 lg:mt-2 animate-pulse">
                   {books[activeBook].heroSubtitle}
                 </span>
               </h2>
               
-              <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 transition-all duration-500 line-clamp-3 lg:line-clamp-none">
+              <p className="text-xs sm:text-sm lg:text-lg xl:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 transition-all duration-500 line-clamp-2 sm:line-clamp-3 lg:line-clamp-none">
                 {books[activeBook].description}
               </p>
             </div>
@@ -121,7 +158,7 @@ const Hero = () => {
             </div>
 
             {/* Book indicators */}
-            <div className="flex gap-3 justify-center lg:justify-start pt-2 lg:pt-4">
+            <div className="flex gap-2 sm:gap-3 justify-center lg:justify-start pt-1 sm:pt-2 lg:pt-4">
               {books.map((_, index) => (
                 <button
                   key={index}
@@ -132,10 +169,10 @@ const Hero = () => {
                       setIsTransitioning(false);
                     }, 500);
                   }}
-                  className={`h-2 rounded-full transition-all duration-300 ${
+                  className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 ${
                     activeBook === index
-                      ? 'w-12 bg-primary'
-                      : 'w-2 bg-primary/30 hover:bg-primary/50'
+                      ? 'w-8 sm:w-12 bg-primary'
+                      : 'w-1.5 sm:w-2 bg-primary/30 hover:bg-primary/50'
                   }`}
                   aria-label={`View ${books[index].title}`}
                 />
@@ -144,8 +181,29 @@ const Hero = () => {
           </div>
 
           {/* Book Display - 3D Carousel */}
-          <div className="flex justify-center lg:justify-end perspective-1000 order-2 lg:order-none mt-10">
-            <div className="relative w-full max-w-xs sm:max-w-sm lg:max-w-md xl:max-w-lg h-[300px] sm:h-[400px] lg:h-[600px]">
+          <div 
+            className="flex justify-center lg:justify-end perspective-1000 order-2 lg:order-none relative"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            {/* Navigation buttons - Mobile only */}
+            {/* <button
+              onClick={handlePrevBook}
+              className="lg:hidden absolute left-0 top-1/2 -translate-y-1/2 z-40 bg-background/80 backdrop-blur-sm p-2 rounded-full shadow-lg hover:bg-background transition-all"
+              aria-label="Previous book"
+            >
+              <ChevronLeft className="w-5 h-5 text-foreground" />
+            </button>
+            <button
+              onClick={handleNextBook}
+              className="lg:hidden absolute right-0 top-1/2 -translate-y-1/2 z-40 bg-background/80 backdrop-blur-sm p-2 rounded-full shadow-lg hover:bg-background transition-all"
+              aria-label="Next book"
+            >
+              <ChevronRight className="w-5 h-5 text-foreground" />
+            </button> */}
+
+            <div className="relative w-full max-w-[200px] sm:max-w-xs lg:max-w-md xl:max-w-lg h-[280px] sm:h-[350px] lg:h-[600px]">
               {books.map((book, index) => {
                 const isActive = index === activeBook;
                 const isPrev = index === (activeBook - 1 + books.length) % books.length;
@@ -196,8 +254,8 @@ const Hero = () => {
                         
                         {/* Book title overlay */}
                         {isActive && (
-                          <div className="absolute -bottom-6 lg:-bottom-8 left-1/2 -translate-x-1/2 w-full text-center px-4">
-                            <h3 className="text-lg lg:text-2xl font-bold text-foreground drop-shadow-lg">
+                          <div className="absolute -bottom-4 sm:-bottom-6 lg:-bottom-8 left-1/2 -translate-x-1/2 w-full text-center px-4">
+                            <h3 className="text-base sm:text-lg lg:text-2xl font-bold text-foreground drop-shadow-lg">
                               {book.title}
                             </h3>
                           </div>
@@ -220,12 +278,12 @@ const Hero = () => {
           </div>
 
           {/* Mobile buttons - below the book carousel */}
-          <div className="lg:hidden flex flex-col gap-3 justify-center order-3 pt-4">
+          <div className="lg:hidden flex flex-col gap-2 sm:gap-3 justify-center order-3 pt-3 sm:pt-4">
             <Button
               variant="cta"
               size="default"
               onClick={() => scrollToSection('books')}
-              className="transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl w-full"
+              className="transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl w-full text-sm sm:text-base"
             >
               Explore Books
             </Button>
@@ -233,7 +291,7 @@ const Hero = () => {
               variant="outline"
               size="default"
               onClick={() => scrollToSection('about')}
-              className="transform hover:scale-105 transition-all duration-300 w-full"
+              className="transform hover:scale-105 transition-all duration-300 w-full text-sm sm:text-base"
             >
               About the Author
             </Button>
