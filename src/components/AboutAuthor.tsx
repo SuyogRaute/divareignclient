@@ -1,5 +1,6 @@
-import authorPortrait from "@/assets/author-portrait.jpg";
+import authorPortrait from "@/assets/auther.jpg";
 import { Button } from "./ui/button";
+import { Instagram, Twitter, Facebook, Mail } from "lucide-react";
 
 const AboutAuthor = () => {
   const scrollToContact = () => {
@@ -10,20 +11,25 @@ const AboutAuthor = () => {
   };
 
   return (
-    <section id="about" className="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-background">
+    <section
+      id="about"
+      className="py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-background"
+    >
       <div className="container mx-auto">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Author Image */}
           <div className="animate-fade-in-scale">
             <div className="relative group max-w-lg mx-auto">
               <div className="absolute -inset-4 bg-gradient-gold rounded-full opacity-20 group-hover:opacity-30 blur-2xl transition-smooth" />
               <img
                 src={authorPortrait}
                 alt="Diva Reign - Author Portrait"
-                className="relative w-full rounded-full shadow-elevated transform group-hover:scale-105 transition-bounce"
+                className="relative w-full  shadow-elevated transform group-hover:scale-105 transition-bounce"
               />
             </div>
           </div>
 
+          {/* Author Text */}
           <div className="space-y-6 animate-fade-in">
             <div className="space-y-3">
               <h2 className="text-4xl lg:text-6xl font-serif font-bold text-foreground">
@@ -36,23 +42,62 @@ const AboutAuthor = () => {
 
             <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
               <p>
-                Diva Reign is a mystic, creator, and soul-writer whose life has been born on a path 
-                of healing, purpose, and divine remembrance.
+                Diva Reign is a contemporary author and visionary storyteller whose work explores the
+                evolution of the self, consciousness, and the human spirit. Through her books{" "}
+                <em>Unveiled</em> and <em>Sovereign</em>, she invites readers on a transformative
+                journey of truth, healing, and empowerment.
               </p>
               <p>
-                Her mission is to help others wake up to the truth of who they are, guiding them 
-                through transformative stories that resonate with the deepest parts of the soul.
+                With a voice that bridges depth and clarity, Diva writes to awaken awareness and
+                spark inner alchemy. Her words reflect a lived understanding of resilience and
+                renewal — turning pain into purpose and introspection into illumination.
               </p>
               <p>
-                Drawing from her own spiritual journey, she crafts narratives that inspire personal 
-                growth, self-discovery, and alignment with one's highest purpose.
+                Each of her works is not merely a book, but a mirror — guiding readers toward
+                authenticity, freedom, and higher consciousness.
               </p>
             </div>
 
-            <div className="pt-6">
+            <div className="pt-6 flex items-center gap-4">
               <Button variant="elegant" size="lg" onClick={scrollToContact}>
                 Connect With Me
               </Button>
+              <div className="flex gap-4 " >
+              <a
+                href="https://www.instagram.com/diva.reign?igsh=NnUzd3k4azVtbGlz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:scale-110 transition-bounce"
+                aria-label="Instagram"
+              >
+                <Instagram className="h-6 w-6" />
+              </a>
+              <a
+                href="https://x.com/divareign15?t=1oCBRnMQy6sKT8MSaMYpNA&s=09"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:scale-110 transition-bounce"
+                aria-label="Twitter"
+              >
+                <Twitter className="h-6 w-6" />
+              </a>
+              <a
+                href="https://www.facebook.com/share/17YDRGq2e6/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:scale-110 transition-bounce"
+                aria-label="Facebook"
+              >
+                <Facebook className="h-6 w-6" />
+              </a>
+              <a
+                href="mailto:divareign15@gmail.com"
+                className="hover:scale-110 transition-bounce"
+                aria-label="Email"
+              >
+                <Mail className="h-6 w-6" />
+              </a>
+            </div>
             </div>
           </div>
         </div>

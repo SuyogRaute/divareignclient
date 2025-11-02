@@ -89,7 +89,7 @@ const ContactSection = () => {
             <div className="flex items-center justify-center gap-2 text-muted-foreground">
               <Mail className="h-5 w-5" />
               <a href="mailto:contact@divareign.com" className="hover:text-primary transition-smooth">
-                contact@divareign.com
+                divareign15@gmail.com
               </a>
             </div>
           </div>

@@ -33,7 +33,7 @@ const Footer = () => {
             <h4 className="text-lg font-semibold">Connect</h4>
             <div className="flex gap-4">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/diva.reign?igsh=NnUzd3k4azVtbGlz"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:scale-110 transition-bounce"
@@ -42,7 +42,7 @@ const Footer = () => {
                 <Instagram className="h-6 w-6" />
               </a>
               <a
-                href="https://twitter.com"
+                href="https://x.com/divareign15?t=1oCBRnMQy6sKT8MSaMYpNA&s=09"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:scale-110 transition-bounce"
@@ -51,7 +51,7 @@ const Footer = () => {
                 <Twitter className="h-6 w-6" />
               </a>
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/share/17YDRGq2e6/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:scale-110 transition-bounce"
@@ -60,7 +60,7 @@ const Footer = () => {
                 <Facebook className="h-6 w-6" />
               </a>
               <a
-                href="mailto:contact@divareign.com"
+                href="mailto:divareign15@gmail.com"
                 className="hover:scale-110 transition-bounce"
                 aria-label="Email"
               >
