@@ -40,7 +40,7 @@ const AboutAuthor = () => {
               </h3>
             </div>
 
-            <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
+            <div className="space-y-4 text-lg text-muted-foreground leading-relaxed justify-conten-center">
               <p>
                 Diva Reign is a contemporary author and visionary storyteller whose work explores the
                 evolution of the self, consciousness, and the human spirit. Through her books{" "}

@@ -25,7 +25,7 @@ const BookCard = ({ title, subtitle, description, image, tags, amazonLink, rever
         </div>
       </div>
 
-      <div className={`${reverse ? "md:col-start-1 md:row-start-1" : ""} space-y-6 animate-fade-in`}>
+      <div className={`${reverse ? "md:col-start-1 justify-center md:row-start-1" : ""} space-y-6 animate-fade-in`}>
         <div className="space-y-3">
           <h3 className="text-4xl lg:text-5xl font-serif font-bold text-foreground">
             {title}
@@ -35,7 +35,7 @@ const BookCard = ({ title, subtitle, description, image, tags, amazonLink, rever
           </p>
         </div>
 
-        <p className="text-lg text-muted-foreground leading-relaxed">
+        <p className="text-lg text-muted-foreground leading-relaxed ">
           {description}
         </p>
 
