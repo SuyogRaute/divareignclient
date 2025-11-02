@@ -78,12 +78,12 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto relative z-10 h-full flex items-center">
-        <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center w-full">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center w-full mt-10">
           {/* Text Content */}
           <div className="text-center lg:text-left space-y-3 lg:space-y-6">
             <div className="space-y-2 lg:space-y-4 animate-fade-in">
               <div className="inline-block">
-                <span className="px-3 py-1.5 lg:px-4 lg:py-2 bg-primary/10 text-primary rounded-full text-xs lg:text-sm font-semibold backdrop-blur-sm border border-primary/20 transition-all duration-500">
+                <span className="px-3 py-1.5 lg:px-4 lg:py-2 bg-primary/10 text-primary rounded-full text-xs lg:text-sm font-semibold backdrop-blur-sm border border-primary/20 transition-all duration-500 ">
                   {books[activeBook].badge}
                 </span>
               </div>

@@ -19,15 +19,16 @@ const AboutAuthor = () => {
         <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Author Image */}
           <div className="animate-fade-in-scale">
-            <div className="relative group max-w-lg mx-auto">
+            <div className="relative group mx-auto max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
               <div className="absolute -inset-4 bg-gradient-gold rounded-full opacity-20 group-hover:opacity-30 blur-2xl transition-smooth" />
               <img
                 src={authorPortrait}
                 alt="Diva Reign - Author Portrait"
-                className="relative w-full  shadow-elevated transform group-hover:scale-105 transition-bounce"
+                className="relative w-full max-w-[90%] sm:max-w-[80%] mx-auto shadow-elevated transform group-hover:scale-105 transition-bounce"
               />
             </div>
           </div>
+
 
           {/* Author Text */}
           <div className="space-y-6 animate-fade-in">
@@ -63,41 +64,41 @@ const AboutAuthor = () => {
                 Connect With Me
               </Button>
               <div className="flex gap-4 " >
-              <a
-                href="https://www.instagram.com/diva.reign?igsh=NnUzd3k4azVtbGlz"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:scale-110 transition-bounce"
-                aria-label="Instagram"
-              >
-                <Instagram className="h-6 w-6" />
-              </a>
-              <a
-                href="https://x.com/divareign15?t=1oCBRnMQy6sKT8MSaMYpNA&s=09"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:scale-110 transition-bounce"
-                aria-label="Twitter"
-              >
-                <Twitter className="h-6 w-6" />
-              </a>
-              <a
-                href="https://www.facebook.com/share/17YDRGq2e6/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:scale-110 transition-bounce"
-                aria-label="Facebook"
-              >
-                <Facebook className="h-6 w-6" />
-              </a>
-              <a
-                href="mailto:divareign15@gmail.com"
-                className="hover:scale-110 transition-bounce"
-                aria-label="Email"
-              >
-                <Mail className="h-6 w-6" />
-              </a>
-            </div>
+                <a
+                  href="https://www.instagram.com/diva.reign?igsh=NnUzd3k4azVtbGlz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:scale-110 transition-bounce"
+                  aria-label="Instagram"
+                >
+                  <Instagram className="h-6 w-6" />
+                </a>
+                <a
+                  href="https://x.com/divareign15?t=1oCBRnMQy6sKT8MSaMYpNA&s=09"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:scale-110 transition-bounce"
+                  aria-label="Twitter"
+                >
+                  <Twitter className="h-6 w-6" />
+                </a>
+                <a
+                  href="https://www.facebook.com/share/17YDRGq2e6/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:scale-110 transition-bounce"
+                  aria-label="Facebook"
+                >
+                  <Facebook className="h-6 w-6" />
+                </a>
+                <a
+                  href="mailto:divareign15@gmail.com"
+                  className="hover:scale-110 transition-bounce"
+                  aria-label="Email"
+                >
+                  <Mail className="h-6 w-6" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
