@@ -32,8 +32,8 @@ const AboutAuthor = () => {
 
           {/* ✅ Author Text */}
           <div className="space-y-6 animate-fade-in text-left md:text-left">
-            <div className="space-y-3">
-              <h2 className="text-4xl lg:text-5xl font-serif font-bold text-foreground">
+            <div className="space-y-3 text-center ">
+              <h2 className="text-4xl lg:text-5xl font-serif font-bold text-foreground ">
                 About the Author
               </h2>
 
